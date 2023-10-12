@@ -1,5 +1,5 @@
 // API endpoint
-const apiLink = "data/recipes.json";
+const apiLink = "https://raw.githubusercontent.com/chingu-voyages/v46-tier1-team-07/main/data/recipes.json";
 
 // Event listener for input and search button
 document.getElementById("searchInput").addEventListener("keyup", (event) => {

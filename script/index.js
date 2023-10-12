@@ -1,5 +1,5 @@
 // API endpoint
-const apiLink = "data/recipes.json";
+const apiLink = "../data/recipes.json";
 
 // Event listener for input and search button
 document.getElementById("searchInput").addEventListener("keyup", (event) => {

@@ -47,14 +47,26 @@ function showResults(data) {
   const resultDiv = document.getElementById("results");
   resultDiv.innerHTML = "";
 
-  data.forEach((item) => {
-    const recipesItem = document.createElement("div");
-    recipesItem.innerHTML = `<p>${item.name}</p>`;
-    resultDiv.appendChild(recipesItem);
+  data.forEach((item, index) => {
+    resultDiv.innerHTML += `
+    <p><img src ="${item.thumbnail_url}" alt="${item.name}" width ="20%"</p>
+    <p>${item.name}</p>
+    <button onClick="showDetails(${item.id})">More Information</button>
+    `;
   });
 }
 
 function showNoResults() {
   const resultDiv = document.getElementById("results");
   resultDiv.innerHTML = `<p>There are no results</p>`;
+}
+
+async function showDetails(recipeDetails) {
+  const response = await fetch(apiLink);
+  const data = await response.json();
+  const recipesDetailsList = data.results;
+  const showThis = recipesDetailsList.find(({ id }) => id === recipeDetails);
+  console.log(showThis.name);
+  console.log(showThis.total_time_tier.display_tier);
+  console.log(showThis.instructions);
 }

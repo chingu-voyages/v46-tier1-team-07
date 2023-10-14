@@ -1,6 +1,12 @@
 // API endpoint
 const apiLink = "https://raw.githubusercontent.com/chingu-voyages/v46-tier1-team-07/main/data/recipes.json";
 
+//Global Variables
+const resultDiv = document.getElementById("results");
+const ingredientDiv = document.getElementById("ingredient");
+const menu = document.querySelector('.menu');
+const dropdown = document.querySelector('.dropdown-menu');
+
 // Event listener for input and search button
 document.getElementById("searchInput").addEventListener("keyup", (event) => {
   if (event.key === "Enter" && event.target.value.length > 0) {
@@ -44,20 +50,20 @@ async function getApiList(searchInput) {
 
 // Display search results or no results message
 function showResults(data) {
-  const resultDiv = document.getElementById("results");
   resultDiv.innerHTML = "";
+  resultDiv.classList.remove('hide');
+  ingredientDiv.classList.add('hide');
 
   data.forEach((item) => {
-    resultDiv.innerHTML += `
+    resultDiv.innerHTML += `<div class="result-item">
     <p><img src ="${item.thumbnail_url}" alt="${item.name}" width ="20%" /></p>
     <p>${item.name}</p>
     <button onClick="showDetails(${item.id})">More Information</button>
-    `;
+    </div>`;
   });
 }
 
 function showNoResults() {
-  const resultDiv = document.getElementById("results");
   resultDiv.innerHTML = `<p>There are no results</p>`;
 }
 
@@ -74,10 +80,25 @@ async function showDetails(recipeDetails) {
   lists.forEach((list) => {
     instructionList += `<p>${list.display_text}</p>`;
 
+    resultDiv.classList.add('hide');
+    ingredientDiv.classList.remove('hide');
+
     document.getElementById("ingredient").innerHTML = `
-  <p>${showThis.name}</p>
+    <p><img src ="${showThis.thumbnail_url}" alt="${showThis.name}" width ="20%" /></p>
+  <h2 class="recipe-name">${showThis.name}</h2>
+  <h3><strong>Estimated Time</strong></h3>
   <p>${showThis.total_time_tier.display_tier}</p>
+  <h3><strong>Cooking Instructions</strong></h3>
   <p> ${instructionList}</p>
   `;
   });
 }
+
+//Show and hide dropdown menu div
+menu.addEventListener('click', () => {
+  if (dropdown.classList.contains('hide')) {
+    dropdown.classList.remove('hide')
+  } else (
+    dropdown.classList.add('hide')
+  )
+});

@@ -1,0 +1,13 @@
+body {
+  background-color: aqua;
+}
+
+.dark-mode {
+  background: #000;
+  color: #fff
+}
+
+
+.hide{
+  display: none;
+}

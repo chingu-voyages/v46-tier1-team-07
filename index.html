@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <script src="https://kit.fontawesome.com/0d440a5638.js" crossorigin="anonymous"></script>
+  <title>Recipe Rally</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <i class="fa-solid fa-bars menu"></i>
+      <div class="dropdown-menu hide">
+        <a href="bios.html">Developer Bios</a>
+      </div>
+    </nav>
+    <h1>Recipe Rally</h1>
+    <div class="mode-container">
+      <span class="display-mode" id="display-mode">Light Mode</span>
+      <i class="fa-solid fa-toggle-on" id="dark-mode-toggle"></i>
+    </div>
+  </header>
+  <main>
+    <section class="search-area">
+      <h2>Enter an ingredient to get started!</h2>
+      <input type="text" id="searchInput" placeholder="Type here" />
+      <i class="fa-solid fa-magnifying-glass" id="searchButton"></i>
+      <div id="results"></div>
+      <div id="ingredient"></div>
+    </section>
+  </main>
+  <footer>
+    <a href="https://github.com/chingu-voyages/v46-tier1-team-07"><i class="fa-brands fa-github"></i></a>
+  </footer>
+
+  <script src="./script/index.js"></script>
+</body>
+
+</html>

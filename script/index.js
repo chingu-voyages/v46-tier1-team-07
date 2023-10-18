@@ -103,6 +103,7 @@ menu.addEventListener('click', () => {
   )
 });
 
+
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 const displayMode = document.getElementById("display-mode");
 const body = document.body;
@@ -118,3 +119,4 @@ darkModeToggle.addEventListener("click", () => {
     darkModeToggle.classList.add("fa-toggle-on");
   }
 });
+

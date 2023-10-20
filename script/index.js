@@ -1,122 +1,164 @@
-// API endpoint
-const apiLink = "https://raw.githubusercontent.com/chingu-voyages/v46-tier1-team-07/main/data/recipes.json";
-
-//Global Variables
 const resultDiv = document.getElementById("results");
-const ingredientDiv = document.getElementById("ingredient");
-const menu = document.querySelector('.menu');
-const dropdown = document.querySelector('.dropdown-menu');
+let dataSaved = null;
+let searchResults = null;
+const errorMsg = document.getElementById("inputMsg");
+const loader = document.querySelector("#loading");
 
-// Event listener for input and search button
-document.getElementById("searchInput").addEventListener("keyup", (event) => {
-  if (event.key === "Enter" && event.target.value.length > 0) {
-    searchRecipes();
-    event.target.value = "";
+// Fetch the data and save it to the DOM (only once)
+async function fetchAndSaveData() {
+  if (!dataSaved) {
+    const url =
+      "https://raw.githubusercontent.com/chingu-voyages/v46-tier1-team-07/main/data/recipes.json";
+    // const url = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=60&q=${searchInput}`;
+    // const options = {
+    //   method: "GET",
+    //   headers: {
+    //     "X-RapidAPI-Key": "Add API Key Here",
+    //     "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+    //   },
+    // };
+    try {
+      const response = await fetch(url);
+      //   const response = await fetch(url, options);
+      const data = await response.json();
+      dataSaved = data.results;
+    } catch (error) {
+      errorMsg.innerHTML = `<p>Something went wrong</p>`;
+      resultDiv.innerHTML = "";
+      return;
+    }
   }
-});
-
-document.getElementById("searchButton").addEventListener("click", (e) => {
-  e.preventDefault();
-  if (searchInput.value.length > 0) {
-    searchRecipes();
-    searchInput.value = "";
-  }
-});
-
-// Search function
-function searchRecipes() {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.toLowerCase();
-  getApiList(searchInput);
 }
 
-// Fetch API data for search
-async function getApiList(searchInput) {
-  const response = await fetch(apiLink);
-  const data = await response.json();
-  const recipesList = data.results;
-
-  const filteredRecipes = recipesList.filter((item) =>
-    item.description.toLowerCase().includes(searchInput)
-  );
-
-  if (filteredRecipes.length > 0) {
-    showResults(filteredRecipes);
+// Add event listener
+document.getElementById("addInput").addEventListener("keyup", (event) => {
+  if (addInput.value.length === 0) {
+    errorMsg.innerHTML = `<p>Please enter a search term</p>`;
+    resultDiv.innerHTML = "";
+    return;
   } else {
-    showNoResults();
+    if (event.key === "Enter") {
+      errorMsg.innerHTML = "";
+      recipeApiResult();
+    }
   }
+});
+
+document.getElementById("searchBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const searchInput = document.getElementById("addInput").value.trim();
+  if (searchInput.length > 0) {
+    recipeApiResult();
+  } else {
+    errorMsg.innerHTML = `<p>Please enter a search term</p>`;
+    resultDiv.innerHTML = "";
+    return;
+  }
+});
+
+async function recipeApiResult() {
+  try {
+    const searchInput = document.getElementById("addInput").value.toLowerCase();
+    searchResults = dataSaved.filter((item) =>
+      item.description.toLowerCase().includes(searchInput)
+    );
+    if (searchResults.length > 0) {
+      showResults(searchResults);
+    } else {
+      showNoResults();
+    }
+  } catch (error) {
+    errorMsg.innerHTML = `<p>Something went wrong</p>`;
+    resultDiv.innerHTML = "";
+    return;
+  }
+  document.getElementById("addInput").value = "";
 }
 
-// Display search results or no results message
+// Display search results
 function showResults(data) {
+  displayLoading();
   resultDiv.innerHTML = "";
-  resultDiv.classList.remove('hide');
-  ingredientDiv.classList.add('hide');
 
   data.forEach((item) => {
     resultDiv.innerHTML += `<div class="result-item">
-    <p><img src ="${item.thumbnail_url}" alt="${item.name}" width ="20%" /></p>
+    <p><img src="${item.thumbnail_url}" alt="${item.name}" width="20%" /></p>
     <p>${item.name}</p>
-    <button onClick="showDetails(${item.id})">More Information</button>
+    <p>${item.id}</p>
+    <button onclick="showRecipeDetails(${item.id})">More Information</button>
     </div>`;
   });
+  errorMsg.innerHTML = "";
 }
 
 function showNoResults() {
   resultDiv.innerHTML = `<p>There are no results</p>`;
 }
 
-// Fetch data for recipe details
-
-async function showDetails(recipeDetails) {
-  const response = await fetch(apiLink);
-  const data = await response.json();
-  const recipesDetailsList = data.results;
-  const showThis = recipesDetailsList.find(({ id }) => id === recipeDetails);
-
-  const lists = showThis.instructions;
-  let instructionList = "";
-  lists.forEach((list) => {
-    instructionList += `<p>${list.display_text}</p>`;
-
-    resultDiv.classList.add('hide');
-    ingredientDiv.classList.remove('hide');
-
-    document.getElementById("ingredient").innerHTML = `
-    <p><img src ="${showThis.thumbnail_url}" alt="${showThis.name}" width ="20%" /></p>
-  <h2 class="recipe-name">${showThis.name}</h2>
-  <h3><strong>Estimated Time</strong></h3>
-  <p>${showThis.total_time_tier.display_tier}</p>
-  <h3><strong>Cooking Instructions</strong></h3>
-  <p> ${instructionList}</p>
-  `;
-  });
+// Define the recepiApiDetails function
+async function recepiApiDetails(id) {
+  try {
+    const recipe = findRecipeById(id, searchResults);
+    let instructionSteps = " ";
+    recipe.instructions.forEach((item) => {
+      instructionSteps += `<li>${item.display_text}</li>`;
+    });
+    let category = " ";
+    recipe.topics.forEach((item) => {
+      category += `<span>${item.name}, </span>`;
+    });
+    if (recipe) {
+      resultDiv.innerHTML = `
+          <div class="recipe-details">
+            <p>${recipe.name}</p>
+            <p>Category: ${category}</p>
+            <p>Instructions:</p>
+            <ul>${instructionSteps}</ul>
+            <button onclick="showSearchResults()">Back to Results</button>
+          </div>
+        `;
+    } else {
+      resultDiv.innerHTML = `<p>Recipe not found</p>`;
+    }
+  } catch (error) {
+    errorMsg.innerHTML = `<p>Something went wrong</p>`;
+    return;
+  }
 }
 
-//Show and hide dropdown menu div
-menu.addEventListener('click', () => {
-  if (dropdown.classList.contains('hide')) {
-    dropdown.classList.remove('hide')
-  } else (
-    dropdown.classList.add('hide')
-  )
+// Show Recipe Details
+function showRecipeDetails(id) {
+  recepiApiDetails(id);
+}
+
+// Show Search Results
+function showSearchResults() {
+  showResults(searchResults);
+}
+
+// Add this function to find a recipe by ID
+function findRecipeById(id, recipesList) {
+  return recipesList.find((recipe) => recipe.id === id);
+}
+
+// Loading spinner until fetch is uploaded
+function displayLoading() {
+  loader.classList.add("display");
+  setTimeout(() => {
+    loader.classList.remove("display");
+  }, 500);
+}
+
+// hiding loading
+function hideLoading() {
+  loader.classList.remove("display");
+}
+
+// Fetch and save data to DOM when the page loads
+window.addEventListener("load", () => {
+  fetchAndSaveData();
 });
 
-
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-const displayMode = document.getElementById("display-mode");
-const body = document.body;
-
-darkModeToggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-
-  if (body.classList.contains("dark-mode")) {
-    darkModeToggle.classList.remove("fa-toggle-on");
-    darkModeToggle.classList.add("fa-toggle-off");
-  } else {
-    darkModeToggle.classList.remove("fa-toggle-off");
-    darkModeToggle.classList.add("fa-toggle-on");
-  }
+document.getElementById("refresh-btn").addEventListener("click", function () {
+  window.location.reload();
 });
-

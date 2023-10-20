@@ -84,7 +84,6 @@ function showResults(data) {
     resultDiv.innerHTML += `<div class="result-item">
     <p><img src="${item.thumbnail_url}" alt="${item.name}" width="20%" /></p>
     <p>${item.name}</p>
-    <p>${item.id}</p>
     <button onclick="showRecipeDetails(${item.id})">More Information</button>
     </div>`;
   });

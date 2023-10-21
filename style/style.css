@@ -1,13 +1,57 @@
-body {
-  background-color: aqua;
+/* Global Styles */
+body{
+  font-size: 16px;
 }
 
 
-.dark-mode {
-  background: #000;
-  color: #fff
+/* Light Mode */
+
+.light-mode{
+  background-color: #F7E7D5;
+  color: #733416;
 }
 
+/* Dark Mode */
+
+.dark-mode{
+  background-color: #733416;
+  color: #F7E7D5;
+}
+
+/* Header */
+
+header{
+  width: 100%;
+  background-color: #CD774D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: none;
+  padding: none;
+}
+
+nav{
+  width: 100%;
+}
+
+nav i {
+  font-size: 3em;
+}
+
+header a {
+  width: 100%;
+  background-color: none;
+}
+
+header h1{
+  font-family: 'Grand Hotel', cursive;
+  font-size: 4em;
+  text-align: center;
+}
+
+header img {
+  width: 30%;
+}
 
 
 .hide{

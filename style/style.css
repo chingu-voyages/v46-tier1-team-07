@@ -1,10 +1,17 @@
 /* Global Styles */
+
 body{
   font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background-color: #733416;
 }
 
+.hide{
+  display: none;
+}
 
-/* Light Mode */
+/* Light Mode
 
 .light-mode{
   background-color: #F7E7D5;
@@ -13,10 +20,10 @@ body{
 
 /* Dark Mode */
 
-.dark-mode{
+/* .dark-mode{
   background-color: #733416;
   color: #F7E7D5;
-}
+} */ 
 
 /* Header */
 
@@ -24,41 +31,53 @@ header{
   width: 100%;
   background-color: #CD774D;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  margin: none;
-  padding: none;
 }
 
 nav{
-  width: 100%;
+  width: 20%;
 }
 
 nav i {
-  font-size: 3em;
+  font-size: 2em;
+  padding: 0 20px;
+  color: #F7E7D5;
+}
+
+.header-content{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 header a {
-  width: 100%;
-  background-color: none;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 header h1{
   font-family: 'Grand Hotel', cursive;
-  font-size: 4em;
+  font-size: 2.2em;
   text-align: center;
+  color: #F7E7D5;
 }
 
 header img {
-  width: 30%;
+  width: 50px; 
 }
 
-
-.hide{
-  display: none;
+/* Main Section */
+.search-area{
+  width: 100%;
+  margin: 0;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
 }
 
-
-/* I wanted to save the font syntax for later */
-/* font-family: 'Grand Hotel', cursive;
-font-family: 'Open Sans', sans-serif; */
+.search-area img{
+  width: 100vw;
+}

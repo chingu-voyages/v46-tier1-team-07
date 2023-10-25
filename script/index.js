@@ -11,6 +11,22 @@ menu.addEventListener('click', () => {
 }
 )
 
+//Function to switch image based on width
+function imageChange () {
+  const hero = document.getElementById('hero-image');
+  const width = window.innerWidth;
+
+  if (width >= 768) {
+    hero.src = "./img/pie3.JPG";
+  } else {
+    hero.src = "./img/pie.jpg";
+  }
+};
+
+window.addEventListener('load', imageChange);
+window.addEventListener('resize', imageChange);
+
+
 const resultDiv = document.getElementById("results");
 let dataSaved = null;
 let searchResults = null;
@@ -127,16 +143,20 @@ async function recepiApiDetails(id) {
     });
     if (recipe) {
       resultDiv.innerHTML = `
-          <div class="recipe-details">
+        <div class="recipe-details">
+          <div class="recipe-img">
             <img src="${recipe.thumbnail_url}" alt="${recipe.name}"/>
+          </div>
+          <div class ="recipe-info">
             <p class="recipe-name">${recipe.name}</p>
             <div>
-            <p class="category"><strong>Category: ${category}</strong></p>
-            <p>Instructions:</p>
-            <ul>${instructionSteps}</ul>
+              <p class="category"><strong>Category: ${category}</strong></p>
+              <p>Instructions:</p>
+              <ul>${instructionSteps}</ul>
             </div>
             <button class="info-button" onclick="showSearchResults()">Back to Results</button>
           </div>
+        </div>
         `;
     } else {
       resultDiv.innerHTML = `<p>Recipe not found</p>`;

@@ -91,13 +91,19 @@ async function recipeApiResult() {
 // Display search results
 function showResults(data) {
   displayLoading();
+
+  const hero = document.getElementById('hero-image');
+  if (hero) {
+    hero.parentNode.removeChild(hero);
+  }
+
   resultDiv.innerHTML = "";
 
   data.forEach((item) => {
     resultDiv.innerHTML += `<div class="result-item">
-    <p><img src="${item.thumbnail_url}" alt="${item.name}" width="20%" /></p>
-    <p>${item.name}</p>
-    <button onclick="showRecipeDetails(${item.id})">More Information</button>
+    <img src="${item.thumbnail_url}" alt="${item.name}"/>
+    <p class="item-name">${item.name}</p>
+    <button class="info-button" onclick="showRecipeDetails(${item.id})">More Information</button>
     </div>`;
   });
   errorMsg.innerHTML = "";
@@ -122,11 +128,14 @@ async function recepiApiDetails(id) {
     if (recipe) {
       resultDiv.innerHTML = `
           <div class="recipe-details">
-            <p>${recipe.name}</p>
-            <p>Category: ${category}</p>
+            <img src="${recipe.thumbnail_url}" alt="${recipe.name}"/>
+            <p class="recipe-name">${recipe.name}</p>
+            <div>
+            <p class="category"><strong>Category: ${category}</strong></p>
             <p>Instructions:</p>
             <ul>${instructionSteps}</ul>
-            <button onclick="showSearchResults()">Back to Results</button>
+            </div>
+            <button class="info-button" onclick="showSearchResults()">Back to Results</button>
           </div>
         `;
     } else {

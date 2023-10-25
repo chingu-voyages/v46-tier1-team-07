@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Open+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/0d440a5638.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Home Harvest</title>
-  </head>
 
-  <body>
-    <header>
-      <nav>
-        <i class="fa-solid fa-bars menu"></i>
-        <div class="dropdown-menu hide">
-          <a href="developerBio.html">Developer Bios</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/0d440a5638.js" crossorigin="anonymous"></script>
+  <title>Home Harvest</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <i class="fa-solid fa-bars menu"></i>
+      <div class="dropdown-menu hide">
+        <a href="developerBio.html">Developer Bios</a>
+      </div>
+    </nav>
+    <div class="header-content">
+      <a href="index.html">
+        <h1>Home Harvest</h1>
+      </a>
+      <a href="index.html">
+        <img src="./img/logo-dark.PNG" alt="A tiny pie logo" />
+      </a>
+    </div>
+  </header>
+  <main>
+    <section class="search-area">
+      <img id="hero-image" src="./img/mushrooms.jpg" alt="A basket of mushrooms" />
+      <h3>Enter an ingredient to get started!</h3>
+      <div class="search-content">
+        <div>
+          <input type="text" id="addInput" placeholder="Type here" />
+          <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
         </div>
-      </nav>
-      <div class="header-content">
-        <a href="index.html">
-          <h1>Home Harvest</h1>
-        </a>
-        <a href="index.html">
-          <img src="./img/logo-dark.PNG" alt="A tiny pie logo" />
-        </a>
-      </div>
-    </header>
-    <main>
-      <section class="search-area">
-        <figure>
-          <img src="./img/mushrooms.jpg" alt="A basket of mushrooms" />
-          <figcaption>Wild forest mushrooms</figcaption>
-        </figure>
-        <h2>Enter an ingredient to get started!</h2>
-        <input type="text" id="addInput" placeholder="Type here" />
-        <i class="fa-solid fa-magnifying-glass" id="searchBtn"></i>
         <button id="refresh-btn">Refresh</button>
-        <div id="inputMsg"></div>
-        <div id="loading"></div>
-        <div id="results"></div>
-        <div id="ingredient"></div>
-      </section>
-    </main>
-    <footer>
-      <a href="https://github.com/chingu-voyages/v46-tier1-team-07"
-        ><i class="fa-brands fa-github"></i
-      ></a>
-      <div class="mode-container">
-        <span class="display-mode" id="display-mode">Light Mode</span>
-        <i class="fa-solid fa-toggle-on" id="dark-mode-toggle"></i>
       </div>
-    </footer>
+      <div id="inputMsg"></div>
+      <div id="loading"></div>
+      <div id="results"></div>
+      <div id="ingredient"></div>
+    </section>
+  </main>
+  <footer>
+    <a href="https://github.com/chingu-voyages/v46-tier1-team-07"><i class="fa-brands fa-github"></i></a>
+    <div class="mode-container">
+      <span class="display-mode" id="display-mode">Light Mode</span>
+      <i class="fa-solid fa-toggle-on" id="dark-mode-toggle"></i>
+    </div>
+  </footer>
 
-    <script src="./script/index.js"></script>
-  </body>
+  <script src="./script/index.js"></script>
+</body>
+
 </html>

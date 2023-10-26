@@ -274,35 +274,6 @@ footer i {
 }
 
 @media only screen and (min-width: 1200px) {
-  /* Tablet and Desktop styles */
-
-  .flexbox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: row wrap;
-  }
-  
-  .developer-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-flow: row wrap;
-  }
-
-  .developer-description {
-    width: 60%;
-  }
-
-  .developer-picture {
-    /* width: 40%; */
-  }
-}
-
-
-/* Desktop Styles */
-
-@media only screen and (min-width: 1200px) {
 
   /* Header */
   header h1 {
@@ -369,6 +340,26 @@ footer i {
 
   .recipe-img img {
     width: 90%;
+  }
+
+  /* Developer Bio Page */
+
+  .flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+  }
+  
+  .developer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+  }
+
+  .developer-description {
+    width: 60%;
   }
 
 }

@@ -234,6 +234,71 @@ footer i {
   }
 }
 
+/* Developer Bio */
+
+#developerBio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.content-wrapper {
+  width: 90%;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.developer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.developer-picture {
+  width: 90%;
+  margin-top: 20px;
+}
+
+.developer-details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+}
+
+@media only screen and (min-width: 1200px) {
+  /* Tablet and Desktop styles */
+
+  .flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+  }
+  
+  .developer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+  }
+
+  .developer-description {
+    width: 60%;
+  }
+
+  .developer-picture {
+    /* width: 40%; */
+  }
+}
+
 
 /* Desktop Styles */
 

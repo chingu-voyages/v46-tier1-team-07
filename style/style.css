@@ -49,6 +49,12 @@ header img {
 
 /* Main Section (Home Page) */
 
+main{
+  background: url(../img/pie.jpg) center no-repeat;
+  background-size: cover;
+  height: 70vh;
+}
+
 .search-area {
   width: 100%;
   margin: 0;
@@ -64,12 +70,17 @@ header img {
 .search-area h3 {
   text-align: center;
   font-size: 1.2em;
+  color: #F7E7D5;
 }
 
 .search-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 200px;
+  background: rgba(95, 55, 43, 0.8);
+  border-radius: 5px;
+  width: 70%;
 }
 
 #refresh-btn {
@@ -196,7 +207,7 @@ footer i {
 
 
 
-/* IPad Styles */
+/* Tablet Styles */
 
 @media only screen and (min-width: 768px) {
 
@@ -211,6 +222,19 @@ footer i {
 
   header img {
     width: 75px;
+  }
+
+  /* Main */
+
+  main{
+    background: url(../img/pie3.JPG) center no-repeat;
+    background-size: cover;
+    height: 70vh;
+  }
+
+  .search-content{
+    width: 50%;
+    margin-top: 225px;
   }
 
   /* Search Result Tiles */
@@ -302,6 +326,12 @@ footer i {
     font-size: 1.2em;
   }
 
+  /* Main */
+
+  .search-content{
+    width: 40%;
+    margin-top: 175px;
+  }
 
   /* Search Result Tiles */
 

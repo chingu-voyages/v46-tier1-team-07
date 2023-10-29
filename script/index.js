@@ -11,17 +11,17 @@ menu.addEventListener('click', () => {
 }
 )
 
-//Function to switch image based on width
-function imageChange () {
-  const hero = document.getElementById('hero-image');
-  const width = window.innerWidth;
+// //Function to switch image based on width
+// function imageChange () {
+//   const hero = document.getElementById('hero-image');
+//   const width = window.innerWidth;
 
-  if (width >= 768) {
-    hero.src = "./img/pie3.JPG";
-  } else {
-    hero.src = "./img/pie.jpg";
-  }
-};
+//   if (width >= 768) {
+//     hero.src = "./img/pie3.JPG";
+//   } else {
+//     hero.src = "./img/pie.jpg";
+//   }
+// };
 
 window.addEventListener('load', imageChange);
 window.addEventListener('resize', imageChange);

@@ -204,7 +204,44 @@ footer i {
   padding-right: 5px;
 }
 
+/* Developer Bio Page Styles */
 
+#developerBio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.content-wrapper {
+  width: 90%;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.developer-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.developer-picture {
+  width: 90%;
+  margin-top: 20px;
+}
+
+.developer-details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column wrap;
+}
 
 
 /* Tablet Styles */
@@ -256,45 +293,6 @@ footer i {
     width: 80%;
     margin: 30px 10px 10px 10px;
   }
-}
-
-/* Developer Bio */
-
-#developerBio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-}
-
-.content-wrapper {
-  width: 90%;
-}
-
-.flexbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-}
-
-.developer-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
-}
-
-.developer-picture {
-  width: 90%;
-  margin-top: 20px;
-}
-
-.developer-details {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: column wrap;
 }
 
 @media only screen and (min-width: 1200px) {

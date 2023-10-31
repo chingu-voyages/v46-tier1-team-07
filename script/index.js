@@ -11,27 +11,14 @@ menu.addEventListener('click', () => {
 }
 )
 
-// //Function to switch image based on width
-// function imageChange () {
-//   const hero = document.getElementById('hero-image');
-//   const width = window.innerWidth;
-
-//   if (width >= 768) {
-//     hero.src = "./img/pie3.JPG";
-//   } else {
-//     hero.src = "./img/pie.jpg";
-//   }
-// };
-
-window.addEventListener('load', imageChange);
-window.addEventListener('resize', imageChange);
-
 
 const resultDiv = document.getElementById("results");
 let dataSaved = null;
 let searchResults = null;
 const errorMsg = document.getElementById("inputMsg");
 const loader = document.querySelector("#loading");
+const main = document.querySelector('main');
+const searchContent = document.querySelector('.search-content');
 
 // Fetch the data and save it to the DOM (only once)
 async function fetchAndSaveData() {
@@ -108,10 +95,8 @@ async function recipeApiResult() {
 function showResults(data) {
   displayLoading();
 
-  const hero = document.getElementById('hero-image');
-  if (hero) {
-    hero.parentNode.removeChild(hero);
-  }
+  main.style.background = 'none';
+  searchContent.style.background = 'none';
 
   resultDiv.innerHTML = "";
 

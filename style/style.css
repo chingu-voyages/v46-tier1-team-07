@@ -49,12 +49,6 @@ header img {
 
 /* Main Section (Home Page) */
 
-main{
-  background: url(../img/pie.jpg) center no-repeat;
-  background-size: cover;
-  min-height: 70vh;
-}
-
 .search-area {
   width: 100%;
   min-height: 70vh;
@@ -62,7 +56,10 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  background: url(../img/pie.jpg) center no-repeat;
+  background-size: cover;
+  min-height: 70vh;
 }
 
 .search-area img {
@@ -79,7 +76,6 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
   background: rgba(95, 55, 43, 0.8);
   border-radius: 5px;
   width: 70%;
@@ -213,6 +209,7 @@ footer i {
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
+  background: none;
 }
 
 .content-wrapper {
@@ -265,7 +262,7 @@ footer i {
 
   /* Main */
 
-  main{
+  .search-area{
     background: url(../img/pie3.JPG) center no-repeat;
     background-size: cover;
     min-height: 70vh;

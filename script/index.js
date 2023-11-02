@@ -1,17 +1,3 @@
-//Home Page Dropdown DO NOT DELETE
-const dropdown = document.querySelector('.dropdown-menu');
-const menu = document.querySelector('.menu');
-
-menu.addEventListener('click', () => {
-  if (dropdown.classList.contains('hide')) {
-    dropdown.classList.remove('hide');
-  } else {
-    dropdown.classList.add('hide');
-  }
-}
-)
-
-
 const resultDiv = document.getElementById("results");
 let dataSaved = null;
 let searchResults = null;

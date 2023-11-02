@@ -2,6 +2,8 @@
 const dropdown = document.querySelector('.dropdown-menu');
 const menu = document.querySelector('.menu');
 
+
+
 menu.addEventListener('click', () => {
   if (dropdown.classList.contains('hide')) {
     dropdown.classList.remove('hide');
@@ -10,6 +12,24 @@ menu.addEventListener('click', () => {
   }
 }
 )
+
+
+/*----- Dark Mode Feature -----*/
+
+const body = document.querySelector('footer')
+const darkMode = document.querySelector('#dark-mode-toggle')
+
+
+darkMode.addEventListener("click",() =>{
+  console.log("clicked")
+  body.classList.toggle("dark")
+ 
+})
+
+
+
+
+
 
 // //Function to switch image based on width
 // function imageChange () {
@@ -199,6 +219,8 @@ function hideLoading() {
   loader.classList.remove("display");
 }
 
+
+
 // Fetch and save data to DOM when the page loads
 window.addEventListener("load", () => {
   fetchAndSaveData();
@@ -207,3 +229,4 @@ window.addEventListener("load", () => {
 document.getElementById("refresh-btn").addEventListener("click", function () {
   window.location.reload();
 });
+

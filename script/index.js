@@ -52,6 +52,8 @@ let dataSaved = null;
 let searchResults = null;
 const errorMsg = document.getElementById("inputMsg");
 const loader = document.querySelector("#loading");
+const searchContent = document.querySelector('.search-content');
+const searchArea = document.querySelector('.search-area');
 
 // Fetch the data and save it to the DOM (only once)
 async function fetchAndSaveData() {
@@ -128,10 +130,9 @@ async function recipeApiResult() {
 function showResults(data) {
   displayLoading();
 
-  const hero = document.getElementById('hero-image');
-  if (hero) {
-    hero.parentNode.removeChild(hero);
-  }
+  searchArea.style.background = 'none';
+  searchContent.style.background = 'none';
+  searchArea.style.justifyContent = 'flex-start';
 
   resultDiv.innerHTML = "";
 
@@ -146,6 +147,9 @@ function showResults(data) {
 }
 
 function showNoResults() {
+  searchArea.style.justifyContent = 'flex-start';
+  searchArea.style.background = 'none';
+  searchContent.style.background = 'none';
   resultDiv.innerHTML = `<p>There are no results</p>`;
 }
 

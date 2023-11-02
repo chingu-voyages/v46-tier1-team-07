@@ -30,12 +30,6 @@ header {
   align-items: center;
 }
 
-nav i {
-  font-size: 2em;
-  padding: 0 20px;
-  color: #F7E7D5;
-}
-
 header a {
   text-decoration: none;
   display: flex;
@@ -47,6 +41,7 @@ header h1 {
   text-align: center;
   color: #F7E7D5;
   margin: 10px 0;
+  padding-left: 20px;
 }
 
 header img {
@@ -56,18 +51,17 @@ header img {
 
 /* Main Section (Home Page) */
 
-main{
-  background: url(../img/pie.jpg) center no-repeat;
-  background-size: cover;
-  height: 70vh;
-}
-
 .search-area {
   width: 100%;
+  min-height: 70vh;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: url(../img/pie.jpg) center no-repeat;
+  background-size: cover;
+  min-height: 70vh;
 }
 
 .search-area img {
@@ -85,7 +79,6 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
   background: rgba(95, 55, 43, 0.8);
   border-radius: 5px;
   width: 70%;
@@ -128,8 +121,19 @@ a {
   color: inherit
 }
 
-.mode-container {
-  margin-top: 10px;
+.dropdown-menu{
+  margin: 20px 0;
+}
+
+.dropdown-menu a{
+  text-decoration: none;
+  font-size: 1em;
+  color: #F7E7D5;
+  width: 50%;
+  text-align: center;
+  font-weight: 700;
+  border: 2px dotted #F7E7D5;
+  padding: 5px;
 }
 
 #dark-mode-toggle {
@@ -220,67 +224,14 @@ a {
   padding-right: 5px;
 }
 
-
-
-
-/* Tablet Styles */
-
-@media only screen and (min-width: 768px) {
-
-  /* Header */
-  nav i {
-    font-size: 3em;
-  }
-
-  header h1 {
-    font-size: 3em;
-  }
-
-  header img {
-    width: 75px;
-  }
-
-  /* Main */
-
-  main{
-    background: url(../img/pie3.JPG) center no-repeat;
-    background-size: cover;
-    height: 70vh;
-  }
-
-  .search-content{
-    width: 50%;
-    margin-top: 225px;
-  }
-
-  /* Search Result Tiles */
-
-  #results {
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-
-  .result-item {
-    width: 27%;
-    margin: 10px;
-  }
-
-  /* Recipe Details */
-
-  .recipe-details img {
-    width: 80%;
-    margin: 30px 10px 10px 10px;
-  }
-}
-
-/* Developer Bio */
+/* Developer Bio Page Styles */
 
 #developerBio {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
+  background: none;
 }
 
 .content-wrapper {
@@ -313,6 +264,57 @@ a {
   flex-flow: column wrap;
 }
 
+
+/* Tablet Styles */
+
+@media only screen and (min-width: 768px) {
+
+  /* Header */
+  nav i {
+    font-size: 3em;
+  }
+
+  header h1 {
+    font-size: 3em;
+  }
+
+  header img {
+    width: 75px;
+  }
+
+  /* Main */
+
+  .search-area{
+    background: url(../img/pie3.JPG) center no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+  }
+
+  .search-content{
+    width: 50%;
+  }
+
+  /* Search Result Tiles */
+
+  #results {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .result-item {
+    width: 27%;
+    margin: 10px;
+  }
+
+  /* Recipe Details */
+
+  .recipe-details img {
+    width: 80%;
+    margin: 30px 10px 10px 10px;
+  }
+}
+
 @media only screen and (min-width: 1200px) {
 
   /* Header */
@@ -330,10 +332,6 @@ a {
     margin: 30px 0;
   }
   
-  .mode-container {
-    margin-top: 20px;
-  }
-  
   footer i {
     font-size: 3em;
   }
@@ -346,7 +344,6 @@ a {
 
   .search-content{
     width: 40%;
-    margin-top: 175px;
   }
 
   /* Search Result Tiles */
@@ -404,8 +401,14 @@ a {
     flex-flow: row wrap;
   }
 
+  .developer-picture {
+    width: 30%;
+    margin-top: 20px;
+  }
+
   .developer-description {
-    width: 60%;
+    width: 70%;
+    font-size: 16px;
   }
 
 }

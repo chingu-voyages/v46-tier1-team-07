@@ -1,11 +1,4 @@
 /* Global Styles */
-* {box-sizing: border-box}
-
-:root {
-  --light-mode:#f7e7d5;
-  --dark-mode:#733416;
-  --body-font-header-background: #CD774D;
-}
 
 body {
   font-size: 16px;
@@ -68,11 +61,10 @@ header img {
   width: 100vw;
 }
 
-.search-area  {
+.search-area h3 {
   text-align: center;
   font-size: 1.2em;
   color: #F7E7D5;
-  
 }
 
 .search-content {
@@ -107,18 +99,11 @@ footer {
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
-  color: #F7E7D5;
-
-  
 }
 
 footer i {
   font-size: 2em;
-  
-}
-
-a {
-  color: inherit
+  color: #F7E7D5;
 }
 
 .dropdown-menu{
@@ -155,7 +140,6 @@ a {
   margin-top: 10px;
   border: #964e2a 10px double;
   width: 90%;
-  border: 10px solid green;
 }
 
 .result-item img {
@@ -412,16 +396,3 @@ a {
   }
 
 }
-
-/*----- Dark Mode Feature -----*/
-#dark-mode-toggle,
-#dark-mode-toggle:focus {
-  cursor: pointer;
-}
-
-.dark {
-  background-color: var(--light-mode);
-  color: var(--dark-mode);
-  
-}
-

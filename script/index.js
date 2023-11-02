@@ -1,39 +1,10 @@
-//Home Page Dropdown DO NOT DELETE
-const dropdown = document.querySelector('.dropdown-menu');
-const menu = document.querySelector('.menu');
-
-menu.addEventListener('click', () => {
-  if (dropdown.classList.contains('hide')) {
-    dropdown.classList.remove('hide');
-  } else {
-    dropdown.classList.add('hide');
-  }
-}
-)
-
-// //Function to switch image based on width
-// function imageChange () {
-//   const hero = document.getElementById('hero-image');
-//   const width = window.innerWidth;
-
-//   if (width >= 768) {
-//     hero.src = "./img/pie3.JPG";
-//   } else {
-//     hero.src = "./img/pie.jpg";
-//   }
-// };
-
-window.addEventListener('load', imageChange);
-window.addEventListener('resize', imageChange);
-
-
 const resultDiv = document.getElementById("results");
 let dataSaved = null;
 let searchResults = null;
 const errorMsg = document.getElementById("inputMsg");
 const loader = document.querySelector("#loading");
-const searchContent = document.querySelector('.search-content');
-const searchArea = document.querySelector('.search-area');
+const searchContent = document.querySelector(".search-content");
+const searchArea = document.querySelector(".search-area");
 
 // Fetch the data and save it to the DOM (only once)
 async function fetchAndSaveData() {
@@ -110,9 +81,9 @@ async function recipeApiResult() {
 function showResults(data) {
   displayLoading();
 
-  searchArea.style.background = 'none';
-  searchContent.style.background = 'none';
-  searchArea.style.justifyContent = 'flex-start';
+  searchArea.style.background = "none";
+  searchContent.style.background = "none";
+  searchArea.style.justifyContent = "flex-start";
 
   resultDiv.innerHTML = "";
 
@@ -127,9 +98,9 @@ function showResults(data) {
 }
 
 function showNoResults() {
-  searchArea.style.justifyContent = 'flex-start';
-  searchArea.style.background = 'none';
-  searchContent.style.background = 'none';
+  searchArea.style.justifyContent = "flex-start";
+  searchArea.style.background = "none";
+  searchContent.style.background = "none";
   resultDiv.innerHTML = `<p>There are no results</p>`;
 }
 

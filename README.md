@@ -9,11 +9,11 @@
 ## Overview
 
 
-![Home Harvest website](./img/Home-Harvest.png)
+![Home Harvest website](./img/Home-Harvest-base.png)
 ## How to run Project
 
 Live Version:
-- [Github-Pages](https://netlify.com/)
+- [Github-Pages](https://chingu-voyages.github.io/v46-tier1-team-07/)
 
 From the repo: 
 

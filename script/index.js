@@ -178,3 +178,43 @@ window.addEventListener("load", () => {
 document.getElementById("refresh-btn").addEventListener("click", function () {
   window.location.reload();
 });
+
+// Dark mode functioning
+let darkMode = localStorage.getItem("darkMode")
+
+const darkModeBtn = document.querySelector(".dark-mode-btn")
+const body = document.querySelector("body")
+const logo = document.querySelector(".logo")
+
+function enableDarkMode(){
+// add the class light to the footer
+body.classList.add("light")
+
+// update darkMode in localstorage
+localStorage.setItem("darkmode", "enabled")
+
+}
+
+
+function disableDarkMode(){
+  // remove the class light from the footer
+ body.classList.remove("light")
+  //update darkmode in localstorage
+  localStorage.setItem("darkMode", null)
+
+}
+
+darkModeBtn.addEventListener("click", function(){
+  
+  darkMode = localStorage.getItem("darkMode")
+  
+  if (darkMode !== "enabled") {
+    enableDarkMode()
+    console.log(darkMode,"enabled")
+  } else {
+    disableDarkMode()
+    console.log(darkMode,"disable")
+  }
+
+})
+

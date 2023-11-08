@@ -47,8 +47,3 @@ From the repo:
 - [Josh Catlett](https://github.com/xITSDUCKYx)
 
 
-<style>
-   
-    
-    
-</style>

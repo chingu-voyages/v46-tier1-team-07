@@ -84,6 +84,7 @@ function showResults(data) {
   searchArea.style.background = "none";
   searchContent.style.background = "none";
   searchArea.style.justifyContent = "flex-start";
+  window.scrollTo(0, 0);
 
   resultDiv.innerHTML = "";
 
@@ -144,6 +145,7 @@ async function recepiApiDetails(id) {
 
 // Show Recipe Details
 function showRecipeDetails(id) {
+  window.scrollTo(0, 0);
   recepiApiDetails(id);
 }
 

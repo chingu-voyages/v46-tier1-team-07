@@ -13,7 +13,7 @@
 ## How to run Project
 
 Live Version:
-- [Github-Pages]([https://netlify.com/](https://chingu-voyages.github.io/v46-tier1-team-07/index.html))
+- [Github-Pages](https://chingu-voyages.github.io/v46-tier1-team-07/index.html)
 
 From the repo: 
 

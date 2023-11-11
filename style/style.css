@@ -31,8 +31,8 @@ header a {
 header h1 {
   font-family: 'Grand Hotel', cursive;
   font-size: 2.2em;
-  text-align: center;
   color: #F7E7D5;
+  text-align: center;
   margin: 10px 0;
   padding-left: 20px;
 }
@@ -124,9 +124,8 @@ footer i {
   cursor: pointer;
 }
 
-#dark-mode-toggle {
+.dark-mode-toggle {
   font-size: 1em;
-  cursor: pointer;
 }
 
 /* Search Result Tiles */
@@ -215,12 +214,15 @@ footer i {
 
 /* Developer Bio Page Styles */
 
-#developerBio {
+.developerBio {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
   background: none;
+  border: #964e2a 10px double;
+  margin: 20px;
+  padding: 15px;
 }
 
 .content-wrapper {
@@ -333,7 +335,7 @@ footer i {
     font-size: 3em;
   }
   
-  #dark-mode-toggle {
+  .dark-mode-toggle {
     font-size: 1.2em;
   }
 
